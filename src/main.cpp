@@ -134,7 +134,7 @@ namespace
             ml.access(key);
         std::cout << "Self-test passed.\n";
     }
-} // namespace
+} 
 
 int main(int argc, char **argv)
 {
