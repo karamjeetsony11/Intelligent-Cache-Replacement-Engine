@@ -34,7 +34,6 @@ namespace cache_engine
             throw std::invalid_argument("cache capacity must be greater than zero");
     }
 
-    // O(1) lookup, promotion, and eviction.
     class LRUCache
     {
     public:
@@ -82,7 +81,6 @@ namespace cache_engine
         }
     };
 
-    // LFU and MFU both update/evict in O(log capacity). Timestamp gives deterministic LRU tie-breaking.
     class FrequencyCache
     {
     public:
@@ -123,9 +121,6 @@ namespace cache_engine
         Stats stats_;
     };
 
-    // Native online logistic-regression cache.  It learns whether a request is reused
-    // within a bounded future horizon, rather than learning the self-fulfilling fact that
-    // an item happened to be in the cache.  Feedback is delayed until a re-access or expiry.
     class OnlineMLCache
     {
     public:
@@ -146,7 +141,6 @@ namespace cache_engine
             const auto features = make_features(key);
             const double prediction = probability(features);
 
-            // A re-access confirms that the most recent request for this key was useful.
             auto pending = latest_observation_.find(key);
             if (pending != latest_observation_.end()) {
                 learn(pending->second->features, 1.0);
@@ -320,4 +314,4 @@ namespace cache_engine
         return labels;
     }
 
-} // namespace cache_engine
+}
