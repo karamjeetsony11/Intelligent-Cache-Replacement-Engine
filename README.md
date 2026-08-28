@@ -4,6 +4,11 @@
        alt="Intelligent Cache Replacement Engine Architecture"
        >
 </p>
+<p align="center">
+  <img src="/proof.png"
+       alt="Intelligent Cache Replacement Engine Architecture"
+       >
+</p>
 An adaptive cache-replacement engine that learns which objects are likely to be reused, then uses that signal when cache space is needed. The project compares conventional replacement policies with an online, reuse-aware policy under repeatable skewed workloads.
 
 ## Why this project
